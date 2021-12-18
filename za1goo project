@@ -2,8 +2,8 @@
 
 import random
 list_s = list('1234567890AaBbCcDdEeFfGgHhIiJJKkLlMmNnOoPpQqRrSsTtUuVvXxUuZz+-:;%*!&$#?=@')
-print('-=Генератор Паролей Python=-')
-while True:
+while True:   
+    print('-=Генератор Паролей Python=-')
     print('Выберите длину пароля (от 4 до 16 символов):')
     lenght_pass = int(input())
     if 4 <= lenght_pass <= 16:
@@ -20,5 +20,5 @@ while True:
     if a == 'нет':
         print('Программа завершена.')
         break
-    else: 
+    if a == 'да':
         continue
