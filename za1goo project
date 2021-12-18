@@ -1,0 +1,24 @@
+#-=Password Generator Python=-
+
+import random
+list_s = list('1234567890AaBbCcDdEeFfGgHhIiJJKkLlMmNnOoPpQqRrSsTtUuVvXxUuZz+-:;%*!&$#?=@')
+print('-=Генератор Паролей Python=-')
+while True:
+    print('Выберите длину пароля (от 4 до 16 символов):')
+    lenght_pass = int(input())
+    if 4 <= lenght_pass <= 16:
+        print('Сколько паролей требуется сделать? (не более 10)')
+        number_pass = int(input())
+        if  1 <= number_pass <= 10:
+            for _ in range(number_pass):
+                password = ''.join([random.choice(list_s) for i in range(lenght_pass)])
+                print('Ваш пароль -', password)
+        else: print('Неккоректное количество паролей!')   
+    else: print('Неккоректная длина пароля! (введите длину от 4 до 16 символов):')       
+    print('Сделать ещё пароли? (да/нет)')
+    a = input()
+    if a == 'нет':
+        print('Программа завершена.')
+        break
+    else: 
+        continue
