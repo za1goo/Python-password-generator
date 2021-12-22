@@ -1,78 +1,37 @@
 #-=Password Generator Python=-
  
 import random
-chars = ''
-list_1 = '1234567890'
-list_2 = 'qwertyuiopasdfghjklzxcvbnm'
-list_3 = 'QWERTYUIOPASDFGHJKLZXCVBNM'
-list_4 = '-#&*)+-=?|\_.'
+
+chars = list("1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYxZx!+=(/&?@_-.^")
 while True:   
-    print('-=Генератор Паролей Python=-')
-    print('Выберите длину пароля (от 4 до 16 символов):')
-    lenght_pass = int(input())
-    print('Сколько паролей требуется сделать? (не более 10)')
-    number_pass = int(input())    
+    while True:
+        print("-=Генератор Паролей Python=-")
+        print("Выберите длину пароля (от 4 до 16 символов):")
+        lenght_pass = int(input())
+        if 4 <= lenght_pass <= 16:
+            break
+        else: 
+            print("Неккоректная длина пароля! (введите длину от 4 до 16 символов):") 
+            continue
     while True: 
-        print('Пароль будет содержать цифры? (да/нет)')
-        a = input()
-        if a == 'да' or 'lf':
-            chars = chars + list_1
-            break
-        if a == 'нет' or 'ytn':
-            chars = chars
-            break
-        else:
-            print('Неккоректный ввод')
-            continue
-    while True:
-        print('Пароль будет содержать прописные буквы? (да/нет)', end='\n')
-        b = input()
-        if b == 'да' or 'lf':
-            chars += list_2
-            break
-        if b == 'нет' or 'ytn':
-            chars = list_1
-            break
+        print("Введите количество паролей (не более 15):")
+        number_pass = int(input())
+        if 4 <= lenght_pass <= 16:
+            if  1 <= number_pass <= 15:
+                for _ in range(number_pass):
+                    password = ''.join([random.choice(chars) for _ in range(lenght_pass)])
+                    print('Ваш пароль -', password)
+                break
+            else: 
+                print("Неккоректное количество паролей!")
+                continue
         else: 
-            print('Неккоректный ввод')
-            continue
-    while True:
-        print('Пароль будет содержать заглавные буквы? (да/нет)', end='\n')
-        c = input()
-        if c == 'да' or 'lf':
-            a += list_3
+            print('Неккоректная длина пароля! (введите длину от 4 до 16 символов):') 
             break
-        if c == 'нет' or 'ytn':
-            chars += list_2
-            break
-        else: 
-            print('Неккоретный ввод')
-            continue
-    while True:
-        print('Будет ли пароль содеражть символы "~@$^&*)+-=?|\_."? (да/нет)', end='\n')
-        e = input()
-        if e == 'да' or 'lf':
-            chars += list_4
-            break
-        if e == 'нет' or 'ytn':
-            chars += list_3
-            break
-        else:
-            print('Неккоретный ввод')
-            continue        
-    if 4 <= lenght_pass <= 16:
-        if  1 <= number_pass <= 10:
-            for _ in range(number_pass):
-                password = ''.join([random.choice(chars) for _ in range(lenght_pass)])
-                print('Ваш пароль -', password)
-        else: 
-            print('Неккоректное количество паролей!')   
-    else: 
-        print('Неккоректная длина пароля! (введите длину от 4 до 16 символов):')       
     print('Сделать ещё пароли? (да/нет)')
     a = input()
-    if a == 'нет' or 'ytn':
+    if a == 'да':
+        continue
+    if a == 'нет':
         print('Программа завершена.')
         break
-    if a == 'да' or 'lf':
-        continue
