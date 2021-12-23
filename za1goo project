@@ -2,33 +2,33 @@
  
 import random
 
-chars = list("1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYxZx!+=(/&?@_-.^")
+chars = list("1234567890AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYxZx!+=(/&?@_-.^")    #Символы для пароля
+print("-=Генератор Паролей Python=-")
 while True:   
     while True:
-        print("-=Генератор Паролей Python=-")
-        print("Выберите длину пароля (от 4 до 16 символов):")
+        print("Выберите длину пароля (от 4 до 16 символов):")    #Выбор длины пароля
         lenght_pass = int(input())
         if 4 <= lenght_pass <= 16:
             break
         else: 
-            print("Неккоректная длина пароля! (введите длину от 4 до 16 символов):") 
+            print('Некорректная длина пароля!')
             continue
     while True: 
-        print("Введите количество паролей (не более 15):")
+        print("Введите количество паролей (не более 15):")    #Выбор количества паролей
         number_pass = int(input())
         if 4 <= lenght_pass <= 16:
             if  1 <= number_pass <= 15:
                 for _ in range(number_pass):
                     password = ''.join([random.choice(chars) for _ in range(lenght_pass)])
-                    print('Ваш пароль -', password)
+                    print('Ваш пароль -', password)    #Вывод паро(ля/ей)
                 break
             else: 
                 print("Неккоректное количество паролей!")
                 continue
         else: 
-            print('Неккоректная длина пароля! (введите длину от 4 до 16 символов):') 
+            print('Неккоректная длина пароля! (введите длину от 4 до 16 символов):')
             break
-    print('Сделать ещё пароли? (да/нет)')
+    print('Сделать ещё пароли? (да/нет)')    #Повтор програмимы
     a = input()
     if a == 'да':
         continue
